@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>shisha sawkmie n pherman</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I LOVE U JUBAN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #0f0f0f;
+      color: #ffffff;
+    }
+
+    header {
+      background: #111;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #ff9800;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #ff9800;
+      font-size: 1.8em;
+      line-height: 1.3;
+    }
+
+    header p {
+      margin-top: 8px;
+      color: #ccc;
+    }
+
+    .search-box {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .search-box input {
+      width: 90%;
+      max-width: 400px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .movies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .movie {
+      background: #1c1c1c;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .movie:hover {
+      transform: scale(1.05);
+    }
+
+    .movie img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .movie-content {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .movie-content h3 {
+      margin: 0 0 10px;
+      font-size: 17px;
+    }
+
+    .movie-content a {
+      display: inline-block;
+      padding: 10px 15px;
+      background: #ff9800;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🎬 I LOVE YOU JUBAN</h1>
+  <p>One-Click Movie Downloads</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="search" placeholder="Search movie..." onkeyup="searchMovie()">
+</div>
+
+<section class="movies" id="movieList"></section>
+
+<footer>
+  © 2025 SHISHA BHABRIEW EH NII ISKUIN PALAT
+</footer>
+
+<script>
+  const movies = [
+    {
+      title: "Movie 1",
+      poster: "https://i.postimg.cc/qvHW7PK4/MV5BYz-Fi-NTlh-Nj-Qt-YTI2ZC00MWNh-LTk0Ym-Ut-OWMx-NDQ2Nj-Nk-Nm-I2Xk-Ey-Xk-Fqc-Gc-V1.jpg",
+      link: "https://drive.google.com/uc?export=download&id=14nvcmpWJXjwRu5Bqsn4EdcqAqlqiqk7R"
+    },
+    {
+      title: "Movie 2",
+      poster: "https://i.postimg.cc/jjSTxVVH/alita-battle-angel-opened-5-years-ago-this-week-despite-v0-j6vrjj2iiaic1.webp",
+      link: "https://drive.google.com/uc?export=download&id=16r0Y966jqJ3IVmpk4mLTiskSpJTw_abd"
+    },
+    {
+      title: "Movie 3",
+      poster: "https://i.postimg.cc/wvRSMgwy/images-(1).jpg",
+      link: "https://drive.google.com/uc?export=download&id=1_D6ZX-U_Yu8_aOP-sWYycwnAtaUcjHCZ"
+    },
+    {
+      title: "Movie 4",
+      poster: "https://i.postimg.cc/d31ZrNTC/170147872-o97p87.jpg",
+      link: "https://drive.google.com/uc?export=download&id=1eCDsQuaRUpDn0xptTDoCvJfl4IL4djso"
+    },
+    {
+      title: "Movie 5",
+      poster: "https://i.postimg.cc/HnRn5YgK/aqagrzut-S1XV3A6dj-Bz9IEFIkvn.webp",
+      link: "https://drive.google.com/uc?export=download&id=1zRgz6mSvcJrA7DF2-40jnEhWx-Q9WWGA"
+    },
+    {
+      title: "Movie 6",
+      poster: "https://i.postimg.cc/D0Jy79XY/images.jpg",
+      link: "https://drive.google.com/uc?export=download&id=1cpNoKwnn3TwhzEwSIC19_G8MKgKja2zD"
+    }
+  ];
+
+  const movieList = document.getElementById("movieList");
+
+  function loadMovies() {
+    movieList.innerHTML = "";
+    movies.forEach(movie => {
+      movieList.innerHTML += `
+        <div class="movie">
+          <img src="${movie.poster}">
+          <div class="movie-content">
+            <h3>${movie.title}</h3>
+            <a href="${movie.link}">Download</a>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  function searchMovie() {
+    const input = document.getElementById("search").value.toLowerCase();
+    const cards = document.querySelectorAll(".movie");
+
+    cards.forEach(card => {
+      const title = card.querySelector("h3").innerText.toLowerCase();
+      card.style.display = title.includes(input) ? "block" : "none";
+    });
+  }
+
+  loadMovies();
+</script>
+
+</body>
+</html>
+    
+  </body>
+  
+</html>
